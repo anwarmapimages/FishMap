@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <style>
+    html,
+    body
+    {
+      height: 100%;
+      width:  100%;
+      margin:   0;
+      padding:  0;
+    }
+
+    #map
+    {
+      margin: 0px;
+      width: 100%;
+      height:100%;
+      position: absolute;
+    }
+  </style>
+
+
+    <title>Fishing</title>
+  </head>
+  <body onload="initMap()" bgcolor="black">
+
+       <div id="map"></div> 
+    
+    
+    
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDru4JrckBTnb2_0t8kqTyj6qqGA8ALiuc&callback=initMap"
+      async
+    > 
+    </script>
+
+    <script>
+
+      var Loc = {lat:34.804959517186525, lng:-98.19854836039873};
+
+      function initMap()
+    {
+      var map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 4,
+      center: Loc,
+      mapTypeId: 'hybrid'
+      });
+
+
+
+
+      let myFishRivermarkers = [
+  		{lat: 34.94309013224367, lng: -83.19768305914604},
+  		{lat: 35.6036886117941, lng: -84.21269316016476},
+
+  		{lat: 35.06507656220162, lng: -91.47817444845631},
+  		{lat: 35.351781104228365, lng: -91.71731349813642},
+
+  		{lat: 35.48916847194551, lng: -95.09780093206295},
+  		{lat: 33.88638454675647, lng: -95.93250268220885},
+  		{lat: 34.01982985697118, lng: -94.93772260465482},
+  		{lat: 36.1863029314207, lng: -106.21701556141544},
+  		{lat: 36.3830398580771, lng: -106.03752055957823},
+  		{lat: 39.15301235143392, lng: -112.83495329605772},
+
+  		{lat: 37.40479196547511, lng: -113.54324206982662},
+  		{lat: 38.84971543263401, lng: -118.77034216026263},
+  		{lat: 33.24348351665953, lng: -87.05631139176566},
+
+  		{lat: 34.76125890424682, lng: -87.26557632896548},
+  		{lat: 35.753904941990434, lng: -118.42343215404865},
+  		{lat: 37.27134693445674, lng: -118.31040170700385},
+
+  		{lat: 33.705778539098105, lng: -117.9271864869723},
+
+
+  		{lat: 34.73508112082051, lng: -85.886921733249},
+  		{lat: 38.26820751652831, lng: -112.6266447621973},
+
+  		{lat: 35.66273007643481, lng: -106.74469530031594},
+  		{lat: 35.59209490003981, lng: -95.05691903898077},
+
+
+  		{lat: 33.87213826000341, lng: -87.09018418988873},
+
+  		{lat: 35.74637768009929, lng: -118.41920634270963},
+
+  		{lat: 34.02460907506348, lng: -96.2816368856208},
+
+  		{lat: 34.55592663706, lng: -93.1838768849521},
+
+  		{lat: 37.271387509908266, lng: -118.31032646280899},
+
+	   ];
+
+
+       
+      let myRiverIcon = {
+      url: "icons/fast-river-constance-drescher.jpg",
+      scaledSize: new google.maps.Size(40, 40),
+      origin: new google.maps.Point(0, 0),
+      anchor: new google.maps.Point(15, 30),
+      };
+
+
+  		for (let i = 0; i < myFishRivermarkers.length; i++) {
+    	  let myrivermarkers = new google.maps.Marker({
+     	  position: new google.maps.LatLng(myFishRivermarkers[i].lat, myFishRivermarkers[i].lng),
+      	  map: map,
+      	  icon: myRiverIcon,
+    	});
+  	  }
+
+
+
+      let myFishmarkers = [  // Array of marker locations
+
+
+      
+        {lat: 29.525945779103093, lng: -97.93479737899837},//River
+  		{lat: 35.18789477104202, lng: -85.28346918573514},//River
+  		{lat: 39.163694060181626, lng: -114.81446172946902},//Lake
+  		{lat: 35.85483089481361, lng: -94.91682788228574},//River
+
+
+  		//Taken from the above rivers markers(data)
+  		{lat: 35.39960752510496, lng: -85.82143323169211},
+  		{lat: 37.16787497153383, lng: -91.16674788735327},
+  		{lat: 37.91014545359811, lng: -112.41500093132133},
+  		{lat: 33.872141198278804, lng: -87.09018516395714},
+  		{lat: 34.20166464445722, lng: -117.01240114898697},
+  		{lat: 36.902770977344716, lng: -106.57612207607104},
+  		{lat: 34.271159479625624, lng: -117.13074073766738},
+  		{lat: 34.141649991575626, lng: -111.72723587673914},
+  		{lat: 35.51106663119265, lng: -118.86761902330122},
+  		{lat: 29.743054272670477, lng: -94.70333382271595},
+  		{lat: 28.449947869187866, lng: -98.19438964871202},
+ 		{lat: 35.75416306111076, lng: -118.42328369700147},
+ 		{lat: 34.34829012316574, lng: -117.24113305859625},
+		{lat: 34.3022537510784, lng: -111.34219682474362},
+  		{lat: 35.21189264991082, lng: -85.10910344911942},
+
+
+
+
+  		{lat: 34.92704396543796, lng: -82.90375446066497},//Lake
+  		{lat: 34.60841230558005, lng: -83.16515532353206},//Lake
+  		{lat: 34.98122158062266, lng: -82.92331332086516},//Lake
+  		{lat: 39.1649397588166, lng: -114.81251455377061},//Lake
+  		{lat: 39.15305965533598, lng: -114.81132562724626},//Lake
+  		{lat: 34.16430178381693, lng: -116.88179926453073},//Lake
+  		{lat: 34.2511118594174, lng: -117.1939317860674},//Lake
+  		{lat: 34.255578893899624, lng: -116.93025549967159},//Lake
+	   ];
+
+
+        // Create a custom trout icon
+      let troutIcon = {
+      url: "icons/fish.png", // Replace with the path to your icon image
+      scaledSize: new google.maps.Size(30, 30), // Adjust size as needed
+      origin: new google.maps.Point(0, 0),
+      anchor: new google.maps.Point(15, 30) // Anchor the icon at the bottom center
+      };
+
+
+        // Loop through locations and create markers
+  		for (let i = 0; i < myFishmarkers.length; i++) {
+    	  let mymarkers = new google.maps.Marker({
+     	  position: new google.maps.LatLng(myFishmarkers[i].lat, myFishmarkers[i].lng),
+      	  map: map,
+      	  icon: troutIcon
+    	});
+  	  }//loop ends here
+
+    }//initMap function ends here
+
+
+    </script>
+  </body>
+</html>
+
